@@ -136,7 +136,7 @@ export function NotePad({ lessonId, notes, onSave }) {
         placeholder="Prenez des notes sur cette leçon..."
         style={{
           width: '100%', minHeight: 100, padding: 12,
-          background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+          background: 'var(--bg-input)', border: '1px solid var(--border-default)',
           borderRadius: 'var(--radius-sm)', color: 'var(--text-primary)',
           fontFamily: 'var(--font)', fontSize: 14, resize: 'vertical'
         }}

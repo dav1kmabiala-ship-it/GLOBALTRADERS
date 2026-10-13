@@ -50,11 +50,13 @@ export function HomePage({ progress }) {
         <div className="hero-content">
           <div className="hero-badge anim-fade-in-up">
             <span className="hero-badge-dot" />
-            Académie de Trading · {modules.length} modules · {allLessons.length} leçons
+            L'Académie du Trading · {modules.length} modules · {allLessons.length} leçons
           </div>
-          <h1 className="hero-title anim-fade-in-up anim-delay-1">MASTER THE MARKET.</h1>
+          <h1 className="hero-title anim-fade-in-up anim-delay-1">
+            Comprends le marché.<br />Maîtrise ta méthode.
+          </h1>
           <p className="hero-subtitle anim-fade-in-up anim-delay-2">
-            Comprends la structure du marché. Maîtrise les liquidités. Construis une méthode de trading disciplinée.
+            Des fondamentaux aux Smart Money Concepts, apprends à lire le prix avec clarté.
           </p>
           <p className="hero-description anim-fade-in-up anim-delay-3">
             Un parcours complet, des fondamentaux jusqu'aux concepts avancés de Smart Money Concepts.
@@ -62,10 +64,10 @@ export function HomePage({ progress }) {
           </p>
           <div className="hero-buttons anim-fade-in-up anim-delay-4">
             <button className="btn btn-primary btn-lg" onClick={() => navigate('/modules')}>
-              Explorer la formation →
+              Explorer la formation
             </button>
-            <button className="btn btn-secondary btn-lg" onClick={() => navigate('/dashboard')}>
-              Découvrir le programme
+            <button className="hero-text-link" onClick={() => navigate('/dashboard')}>
+              Découvrir le programme →
             </button>
           </div>
           <div className="hero-stats anim-fade-in-up anim-delay-5">
@@ -158,7 +160,7 @@ export function HomePage({ progress }) {
           <h2 className="cta-title">Ton prochain niveau commence par une meilleure compréhension du marché.</h2>
           <p className="cta-subtitle">Rejoins l'académie et construis ta méthode de trading, étape par étape.</p>
           <button className="btn btn-primary btn-lg" onClick={() => navigate('/modules')}>
-            Commencer mon parcours →
+            Commencer mon parcours
           </button>
         </div>
       </section>

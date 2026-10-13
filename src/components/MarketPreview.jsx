@@ -10,27 +10,27 @@ const concepts = [
     def: 'Une tendance est une succession de sommets et creux dans la même direction. HH+HL = haussière, LH+LL = baissière.',
     candles: bullTrend(16, 1.0800, 0.0012),
     annotations: [
-      { type: 'circle', candle: 3, price: 1.0825, color: '#00d4ff' },
-      { type: 'label', candle: 3, price: 1.0825, offsetY: -15, text: 'SH', color: '#00d4ff' },
-      { type: 'circle', candle: 6, price: 1.0815, color: '#ffa726' },
-      { type: 'label', candle: 6, price: 1.0815, offsetY: 15, text: 'HL', color: '#ffa726' },
-      { type: 'circle', candle: 10, price: 1.0855, color: '#00d4ff' },
-      { type: 'label', candle: 10, price: 1.0855, offsetY: -15, text: 'HH', color: '#00d4ff' },
+      { type: 'circle', candle: 3, price: 1.0825, color: '#007AFF' },
+      { type: 'label', candle: 3, price: 1.0825, offsetY: -15, text: 'SH', color: '#007AFF' },
+      { type: 'circle', candle: 6, price: 1.0815, color: '#FF9500' },
+      { type: 'label', candle: 6, price: 1.0815, offsetY: 15, text: 'HL', color: '#FF9500' },
+      { type: 'circle', candle: 10, price: 1.0855, color: '#007AFF' },
+      { type: 'label', candle: 10, price: 1.0855, offsetY: -15, text: 'HH', color: '#007AFF' },
     ]
   },
   {
     id: 'bos',
     name: 'BOS',
-    color: '#E8B864',
+    color: '#007AFF',
     def: 'Break of Structure : cassure du dernier sommet (haussier) ou creux (baissier) confirmant la continuation de la tendance.',
     candles: bosPattern(),
     annotations: [
-      { type: 'label', candle: 5, price: 1.0980, offsetY: -15, text: 'Dernier SH', color: '#00d4ff' },
-      { type: 'label', candle: 12, price: 1.1110, offsetY: -15, text: 'BOS ↑', color: '#E8B864' },
-      { type: 'arrow', candle: 12, price: 1.1110, direction: 'up', color: '#E8B864' },
+      { type: 'label', candle: 5, price: 1.0980, offsetY: -15, text: 'Dernier SH', color: '#007AFF' },
+      { type: 'label', candle: 12, price: 1.1110, offsetY: -15, text: 'BOS ↑', color: '#007AFF' },
+      { type: 'arrow', candle: 12, price: 1.1110, direction: 'up', color: '#007AFF' },
     ],
     lines: [
-      { y1: 1.0980, y2: 1.0980, color: '#00d4ff', dashed: true, label: 'SH', labelX: 0.02, labelY: 1.0980 },
+      { y1: 1.0980, y2: 1.0980, color: '#007AFF', dashed: true, label: 'SH', labelX: 0.02, labelY: 1.0980 },
     ]
   },
   {
@@ -40,13 +40,13 @@ const concepts = [
     def: 'Change of Character : cassure d\'un creux (tendance haussière) ou d\'un sommet (tendance baissière) indiquant un changement potentiel de tendance.',
     candles: chochPattern(),
     annotations: [
-      { type: 'label', candle: 5, price: 1.1000, offsetY: -15, text: 'Dernier SH', color: '#00d4ff' },
-      { type: 'label', candle: 10, price: 1.0940, offsetY: 15, text: 'Dernier HL', color: '#ffa726' },
-      { type: 'label', candle: 11, price: 1.0940, offsetY: 25, text: 'CHoCH ↓', color: '#8B5CF6' },
-      { type: 'arrow', candle: 11, price: 1.0940, direction: 'down', color: '#8B5CF6' },
+      { type: 'label', candle: 5, price: 1.1000, offsetY: -15, text: 'Dernier SH', color: '#007AFF' },
+      { type: 'label', candle: 10, price: 1.0940, offsetY: 15, text: 'Dernier HL', color: '#FF9500' },
+      { type: 'label', candle: 11, price: 1.0940, offsetY: 25, text: 'CHoCH ↓', color: '#AF52DE' },
+      { type: 'arrow', candle: 11, price: 1.0940, direction: 'down', color: '#AF52DE' },
     ],
     lines: [
-      { y1: 1.0940, y2: 1.0940, color: '#ffa726', dashed: true, label: 'HL', labelX: 0.02, labelY: 1.0940 },
+      { y1: 1.0940, y2: 1.0940, color: '#FF9500', dashed: true, label: 'HL', labelX: 0.02, labelY: 1.0940 },
     ]
   },
   {
@@ -65,14 +65,14 @@ const concepts = [
   {
     id: 'ob',
     name: 'Order Block',
-    color: '#E8B864',
+    color: '#FF9500',
     def: 'Zone correspondant à la dernière bougie baissière avant une impulsion haussière (bullish OB) ou la dernière haussière avant une impulsion baissière (bearish OB).',
     candles: orderBlockBullishPattern(),
     zones: [
-      { top: 1.0870, bottom: 1.0850, color: 'rgba(232,184,100,0.1)', label: 'Bullish OB', labelColor: '#E8B864' },
+      { top: 1.0870, bottom: 1.0850, color: 'rgba(255,149,0,0.1)', label: 'Bullish OB', labelColor: '#FF9500' },
     ],
     annotations: [
-      { type: 'label', candle: 1, price: 1.0850, offsetY: 15, text: 'Dernière bougie rouge', color: '#E8B864' },
+      { type: 'label', candle: 1, price: 1.0850, offsetY: 15, text: 'Dernière bougie rouge', color: '#FF9500' },
       { type: 'arrow', candle: 4, price: 1.0950, direction: 'up', color: '#26A69A' },
     ]
   },

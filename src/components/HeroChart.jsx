@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { bullTrend, bearTrend, ranging, bosPattern, chochPattern, fvgBullishPattern, orderBlockBullishPattern, sweepBuySidePattern, pdhPdlPattern } from '../charts/candleData.js'
 
-const BULL = '#26A69A'
-const BEAR = '#EF5350'
+const BULL = '#34C759'
+const BEAR = '#FF3B30'
 
 export function HeroChart() {
   const [mounted, setMounted] = useState(false)
@@ -58,24 +58,24 @@ export function HeroChart() {
       <svg className="hero-chart-svg" viewBox={`0 0 ${width} ${height}`} width="100%">
         <defs>
           <linearGradient id="heroFvg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(59,130,246,0.15)" />
-            <stop offset="100%" stopColor="rgba(59,130,246,0.05)" />
+            <stop offset="0%" stopColor="rgba(0,122,255,0.12)" />
+            <stop offset="100%" stopColor="rgba(0,122,255,0.04)" />
           </linearGradient>
           <linearGradient id="heroBsl" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(38,166,154,0.12)" />
-            <stop offset="100%" stopColor="rgba(38,166,154,0.02)" />
+            <stop offset="0%" stopColor="rgba(52,199,89,0.1)" />
+            <stop offset="100%" stopColor="rgba(52,199,89,0.02)" />
           </linearGradient>
           <linearGradient id="heroSsl" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(239,83,80,0.02)" />
-            <stop offset="100%" stopColor="rgba(239,83,80,0.12)" />
+            <stop offset="0%" stopColor="rgba(255,59,48,0.02)" />
+            <stop offset="100%" stopColor="rgba(255,59,48,0.1)" />
           </linearGradient>
         </defs>
 
         {/* Grid */}
         {gridLines.map((p, i) => (
           <g key={i} className={mounted ? 'anim-fade-in' : ''} style={{ opacity: 0 }}>
-            <line x1={padding.left} y1={yScale(p)} x2={width - padding.right} y2={yScale(p)} stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-            <text x={padding.left - 8} y={yScale(p) + 4} fill="rgba(136,146,166,0.5)" fontSize="9" textAnchor="end" fontFamily="var(--font-mono)">{p.toFixed(3)}</text>
+            <line x1={padding.left} y1={yScale(p)} x2={width - padding.right} y2={yScale(p)} stroke="rgba(0,0,0,0.05)" strokeWidth="0.5" />
+            <text x={padding.left - 8} y={yScale(p) + 4} fill="rgba(134,134,139,0.6)" fontSize="9" textAnchor="end" fontFamily="var(--font-mono)">{p.toFixed(3)}</text>
           </g>
         ))}
 
@@ -96,15 +96,15 @@ export function HeroChart() {
         {/* PDH line */}
         {mounted && (
           <g className="line-draw" style={{ animationDelay: '0.4s' }}>
-            <line x1={padding.left} y1={yScale(pdh)} x2={width - padding.right} y2={yScale(pdh)} stroke="#26A69A" strokeWidth="1" strokeDasharray="4,4" opacity="0.6" />
-            <text x={width - padding.right + 4} y={yScale(pdh) + 3} fill="#26A69A" fontSize="9" fontWeight="600">PDH</text>
+            <line x1={padding.left} y1={yScale(pdh)} x2={width - padding.right} y2={yScale(pdh)} stroke="#34C759" strokeWidth="1" strokeDasharray="4,4" opacity="0.7" />
+            <text x={width - padding.right + 4} y={yScale(pdh) + 3} fill="#34C759" fontSize="9" fontWeight="600">PDH</text>
           </g>
         )}
         {/* PDL line */}
         {mounted && (
           <g className="line-draw" style={{ animationDelay: '0.5s' }}>
-            <line x1={padding.left} y1={yScale(pdl)} x2={width - padding.right} y2={yScale(pdl)} stroke="#EF5350" strokeWidth="1" strokeDasharray="4,4" opacity="0.6" />
-            <text x={width - padding.right + 4} y={yScale(pdl) + 3} fill="#EF5350" fontSize="9" fontWeight="600">PDL</text>
+            <line x1={padding.left} y1={yScale(pdl)} x2={width - padding.right} y2={yScale(pdl)} stroke="#FF3B30" strokeWidth="1" strokeDasharray="4,4" opacity="0.7" />
+            <text x={width - padding.right + 4} y={yScale(pdl) + 3} fill="#FF3B30" fontSize="9" fontWeight="600">PDL</text>
           </g>
         )}
 
@@ -118,7 +118,7 @@ export function HeroChart() {
           const bodyH = Math.max(Math.abs(bodyBottom - bodyTop), 1)
           return (
             <g key={i} className={mounted ? 'candle-anim' : ''} style={{ opacity: 0, animationDelay: `${0.05 * i}s`, transformOrigin: `${cx}px ${bodyBottom}px` }}>
-              <line x1={cx} y1={yScale(c.h)} x2={cx} y2={yScale(c.l)} stroke={color} strokeWidth="1" opacity="0.7" />
+              <line x1={cx} y1={yScale(c.h)} x2={cx} y2={yScale(c.l)} stroke={color} strokeWidth="1" opacity="0.8" />
               <rect x={cx - bodyWidth / 2} y={bodyTop} width={bodyWidth} height={bodyH} fill={color} rx="0.5" />
             </g>
           )
@@ -127,21 +127,16 @@ export function HeroChart() {
         {/* Structure markers */}
         {mounted && (
           <g style={{ opacity: 0, animation: 'fadeIn 0.5s ease 1.2s forwards' }}>
-            <circle cx={xCenter(9)} cy={yScale(candles[9]?.h || 1.098)} r="4" fill="none" stroke="#E8B864" strokeWidth="1.5" />
-            <text x={xCenter(9) + 8} y={yScale(candles[9]?.h || 1.098) - 4} fill="#E8B864" fontSize="9" fontWeight="600">BOS</text>
+            <circle cx={xCenter(9)} cy={yScale(candles[9]?.h || 1.098)} r="4" fill="none" stroke="#007AFF" strokeWidth="1.5" />
+            <text x={xCenter(9) + 8} y={yScale(candles[9]?.h || 1.098) - 4} fill="#007AFF" fontSize="9" fontWeight="600">BOS</text>
           </g>
         )}
         {mounted && (
           <g style={{ opacity: 0, animation: 'fadeIn 0.5s ease 1.4s forwards' }}>
-            <circle cx={xCenter(14)} cy={yScale(candles[14]?.l || 1.094)} r="4" fill="none" stroke="#8B5CF6" strokeWidth="1.5" />
-            <text x={xCenter(14) + 8} y={yScale(candles[14]?.l || 1.094) + 12} fill="#8B5CF6" fontSize="9" fontWeight="600">CHoCH</text>
+            <circle cx={xCenter(14)} cy={yScale(candles[14]?.l || 1.094)} r="4" fill="none" stroke="#AF52DE" strokeWidth="1.5" />
+            <text x={xCenter(14) + 8} y={yScale(candles[14]?.l || 1.094) + 12} fill="#AF52DE" fontSize="9" fontWeight="600">CHoCH</text>
           </g>
         )}
-
-        {/* Glowing points following price */}
-        {mounted && [5, 12, 18].map((i, idx) => (
-          <circle key={`glow-${i}`} cx={xCenter(i)} cy={yScale(candles[i]?.c || 1.09)} r="3" fill="#E8B864" className="glow-point" style={{ color: '#E8B864', animationDelay: `${1.6 + idx * 0.3}s` }} />
-        ))}
       </svg>
     </div>
   )

@@ -75,7 +75,7 @@ export function DashboardPage({ progress }) {
           <div className="progress-card-body">
             <div className="circular-progress">
               <svg width="120" height="120">
-                <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="6" />
+                <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="6" />
                 <circle
                   cx="60" cy="60" r="52" fill="none"
                   stroke="url(#gradAccent)" strokeWidth="6" strokeLinecap="round"
@@ -85,8 +85,8 @@ export function DashboardPage({ progress }) {
                 />
                 <defs>
                   <linearGradient id="gradAccent" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#E8B864" />
-                    <stop offset="100%" stopColor="#D4A04C" />
+                    <stop offset="0%" stopColor="#007AFF" />
+                    <stop offset="100%" stopColor="#0051D5" />
                   </linearGradient>
                 </defs>
               </svg>

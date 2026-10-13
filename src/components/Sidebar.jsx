@@ -20,6 +20,22 @@ const icons = {
   home: <><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M9 22V12h6v10" /></>,
 }
 
+// ATC candlestick logo SVG
+const ATCLogo = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+    {/* Candlestick chart icon */}
+    <rect x="4" y="8" width="3" height="8" rx="0.5" fill="#FFFFFF" />
+    <line x1="5.5" y1="5" x2="5.5" y2="8" stroke="#FFFFFF" strokeWidth="1" />
+    <line x1="5.5" y1="16" x2="5.5" y2="19" stroke="#FFFFFF" strokeWidth="1" />
+    <rect x="10.5" y="5" width="3" height="10" rx="0.5" fill="#FFFFFF" opacity="0.85" />
+    <line x1="12" y1="3" x2="12" y2="5" stroke="#FFFFFF" strokeWidth="1" />
+    <line x1="12" y1="15" x2="12" y2="18" stroke="#FFFFFF" strokeWidth="1" />
+    <rect x="17" y="10" width="3" height="6" rx="0.5" fill="#FFFFFF" opacity="0.7" />
+    <line x1="18.5" y1="7" x2="18.5" y2="10" stroke="#FFFFFF" strokeWidth="1" />
+    <line x1="18.5" y1="16" x2="18.5" y2="19" stroke="#FFFFFF" strokeWidth="1" />
+  </svg>
+)
+
 export function Sidebar({ progress, open, onClose }) {
   const location = useLocation()
   const totalProgress = progress.getTotalProgress(allLessonIds)
@@ -41,10 +57,10 @@ export function Sidebar({ progress, open, onClose }) {
       <div className={`sidebar ${open ? 'open' : ''}`}>
         <div className="sidebar-header">
           <Link to="/" onClick={onClose} style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
-            <div className="sidebar-logo">📈</div>
+            <div className="sidebar-logo"><ATCLogo /></div>
             <div>
-              <div className="sidebar-title">GlobalTraders</div>
-              <div className="sidebar-subtitle">Académie de Trading</div>
+              <div className="sidebar-title">ATC Learn Track</div>
+              <div className="sidebar-subtitle">AFRITRADINGCAPITAL</div>
             </div>
           </Link>
         </div>
@@ -90,7 +106,7 @@ export function Sidebar({ progress, open, onClose }) {
           <div className="progress-bar-bg">
             <div className="progress-bar-fill" style={{ width: `${totalProgress}%` }} />
           </div>
-          <div style={{ fontSize: 13, fontWeight: 600, marginTop: 4 }}>{totalProgress}%</div>
+          <div style={{ fontSize: 13, fontWeight: 600, marginTop: 4, color: 'var(--text-primary)' }}>{totalProgress}%</div>
         </div>
       </div>
     </>

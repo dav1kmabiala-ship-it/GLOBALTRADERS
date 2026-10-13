@@ -3,9 +3,9 @@ import React from 'react'
 // ============ CANDLESTICK CHART COMPONENT ============
 // Renders synthetic candlestick charts with annotations for educational purposes
 
-const BULL = '#26a69a'
-const BEAR = '#ef5350'
-const WICK = '#888'
+const BULL = '#34C759'
+const BEAR = '#FF3B30'
+const WICK = '#86868B'
 
 export function CandlestickChart({ candles = [], width = 600, height = 320, annotations = [], zones = [], lines = [], labels = [], title }) {
   const padding = { top: 20, right: 50, bottom: 30, left: 50 }
@@ -35,8 +35,8 @@ export function CandlestickChart({ candles = [], width = 600, height = 320, anno
         {/* Grid */}
         {gridLines.map((p, i) => (
           <g key={i}>
-            <line x1={padding.left} y1={yScale(p)} x2={width - padding.right} y2={yScale(p)} stroke="#2a3650" strokeWidth="0.5" strokeDasharray="2,4" />
-            <text x={padding.left - 8} y={yScale(p) + 4} fill="#6b7689" fontSize="10" textAnchor="end">{p.toFixed(2)}</text>
+            <line x1={padding.left} y1={yScale(p)} x2={width - padding.right} y2={yScale(p)} stroke="rgba(0,0,0,0.06)" strokeWidth="0.5" strokeDasharray="2,4" />
+            <text x={padding.left - 8} y={yScale(p) + 4} fill="#86868B" fontSize="10" textAnchor="end">{p.toFixed(2)}</text>
           </g>
         ))}
 

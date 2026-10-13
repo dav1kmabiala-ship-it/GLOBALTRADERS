@@ -72,7 +72,7 @@ function Section({ section, lessonId, notes, onSaveNote }) {
 
     case 'summary':
       return (
-        <div className="card" style={{ background: 'rgba(0,212,255,0.03)', borderColor: 'var(--accent-dim)' }}>
+        <div className="card" style={{ background: 'var(--bg-blue-tint)', borderColor: 'var(--border-accent)' }}>
           <h3 style={{ marginBottom: 12, color: 'var(--accent)' }}>📌 Résumé de la leçon</h3>
           <ul style={{ marginLeft: 20 }}>
             {section.points.map((p, i) => <li key={i} style={{ marginBottom: 6 }}>{p}</li>)}
