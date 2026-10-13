@@ -88,15 +88,11 @@ function Section({ section, lessonId, notes, onSaveNote }) {
   }
 }
 
-export function LessonView({ lesson, notes, onSaveNote, onMarkComplete, isCompleted, onPrev, onNext, prevLabel, nextLabel }) {
+export function LessonView({ lesson, notes, onSaveNote, onMarkComplete, isCompleted, onPrev, onNext, prevLabel, nextLabel, sectionIdPrefix }) {
   if (!lesson) return <div>Leçon introuvable.</div>
 
   return (
     <div className="lesson-content">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-        <h1 style={{ fontSize: 26, fontWeight: 700 }}>{lesson.title}</h1>
-      </div>
-
       {lesson.prerequisites && (
         <div className="callout callout-info" style={{ marginBottom: 20 }}>
           <div className="callout-title">📋 Prérequis</div>
@@ -105,7 +101,9 @@ export function LessonView({ lesson, notes, onSaveNote, onMarkComplete, isComple
       )}
 
       {lesson.sections.map((section, i) => (
-        <Section key={i} section={section} lessonId={lesson.id} notes={notes} onSaveNote={onSaveNote} />
+        <div key={i} id={sectionIdPrefix ? `${sectionIdPrefix}${i}` : undefined}>
+          <Section section={section} lessonId={lesson.id} notes={notes} onSaveNote={onSaveNote} />
+        </div>
       ))}
 
       <div className="lesson-nav-buttons">
